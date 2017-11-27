@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script>
+
+//video 1 SCOPING
+	function setWidth() {
+		var width = 100;
+		console.log(width);
+}
+
+setWidth();
+
+var age= 100;
+if(age > 12){
+	var dogYears = age * 7;//right now you can call this variable anywhere which can cause problems when you want to just call something once. or are using a temporary variable. vars are fine inside functions (I.e they dont affect anything outside of curly brackets , but they have to be WITHIN a function for that to happen. )
+	console.log(`You are ${dogYears} in dog years`)
+}
+//we only needed
+//dogyears in one function setting VAR means it is global scoped anyway
+
+//the const declaration creates a read only variable this does not mean the value is
+//immutable but just the variable cannot be reassigned so its parrameters can be altered but what it is itself cannot be changed-->
+
+//functions are block scoped -> if you only want to call dog years in one place you're causing yourself trouble unless it is part of a function with var , whereas with let that is block scoped (which is defined as anything with opening and closing curl brackets)
+
+//LET & CONST ARE BLOCK SCOPED
+
+//VIDE0 2 LET VS CONST
+
+const key ='abc123';
+let points = 50;
+let winner = false;
+
+if (points>40) {
+	console.log("it ran");
+	let winner = true;
+}
+
+
+
+//using the above example ^^ winner = false because winner was already declared with let once.
+//with VAR winner would be true , because the 2nd var would overwrite the first which can cause bugs.
+//plus since it is not in a function it would have a global scope.
+//const cannot be updated but you can add fields to the const.the entire object is not immutable but cannot be reassigned.
+//i.e
+
+	const person1 = { // had an 'missing initalizer error here -> there needs to be an = sign even when const = multiple things before the {}'
+	 name: 'Jason', //assign properties to an object i.e a const using :
+	 age: 29
+	}
+
+// if you type person1 = {name:'Wesley' } -> it will fail and in this example its because you cant change say who you are but you can reassign these things.
+// if you type person.name = 'wesley' it will work because
+//as long as it is the exact same object it will work to reassign it but you can't wipe the entire variable. you can use Object.freeze(person); it won't be able to be changed at all.
+
+//VIDEO 3 LET & CONST IRL
+
+// let and const are useful because with let you can control the scope and with const you can make a variable that cannot be changed by anyone (but can still be updated)
+
+// you can replace the iife (immediately-invoked function expression def: an iife is a function that runs right away and helps you control scope so that noting leaks into the parent scope .)  with let
+	// EXAMPLE OF AN IIFE//
+
+	//(function() {
+		//var name = 'john';
+		//console.log(name);
+		//})();
+		 //console.logging within the function is one way we can see the name but its scope would not exist outside of it with an iife
+
+
+	// let and const would replace that iife
+
+	{
+		const name = 'jack'
+		console.log(name);
+	}
+ /// so for ex ^ would be a replacement for an iife statement.
+
+	for (var i = 0; i < 10; i++) {
+		console.log(i);
+		setTimeout(function(){
+			console.log('the number is' +i);//here we would get the number = which shows a global variable leak (as vars scope is unchecked without a function)
+		},1000); // IN THIS EXERCISE IT RUNS ITSELF iN ONE SECOND & CONSOLE LOGS 10 overwriting it self 10 times , this sort of thing causes issues with ajax requests (i.e with js people used to use iffy to write ajax requests)
+	}
+
+	for (let x = 0; x < 10; x++) {
+		 console.log(x)
+		 setTimeout(function() {
+			console.log('the number is'+ ' ' + x);
+		 }, 1000); //SINCE LET IS BLOCK SCOPED IT WILL PROPERLY RUN WITH THIS SECOND EXPRESSION (1 to 10 in one second)
+	}
+
+//VIDEO 4 TEMPORAL DEAD ZONE
+
+ console.log(pizza);
+ var pizza = 'Deep Dish 🍕🍕🍕';
+// you get undefined if you try to set a var after the console.log that references it.
+
+ console.log(cpizza)
+ const cpizza = 'Deep Dish 🍕🍕🍕';
+
+ // both let and const will throw a undefined error - a temporal dead zone means you cannot access a variable before it has been defined (sequentially in the code)
+</script>
+	</body>
+</html>
+
+<!-- var functions ar e only scoped to the function (i.e it is local to the function) (if something is locally scoped they are closed by } brackets)
