@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script>
+				//VIDEO #6 Arrow funcs//
+	const names = ['Karen','Rebecca','Sylvia','Alice','Jennifer','Amy','Alycia','Marija','Caitlin','Courtney','Cassandra','Meagan','Elissa','Erica','Denise']
+
+	const theyreCool = names.map(function(name){
+		return `${name} is rad`;
+	}).sort();
+	//console.log(theyreCool) hiding console.log to avoid duplication.
+
+
+
+//this array works and sorts but here comes an arrow function
+
+	const theyreCool2 = names.map((name) => {
+		return `${name} is rad`
+	}).sort();
+
+	console.log(theyreCool2)
+
+	const theyreCool3 = names.map(name => {
+		return `${name} is rad`
+	}).sort();
+
+	const theyreCool4 = names.map (name => `${name} is rad`).sort();
+
+
+//if you only have 1 parameter you do not need these double brackets
+// ALL OF THESE ABOVE FUNCS PERFORM THE SAME (just add console.log)
+
+	const theyreCool5 = names.map(() => `is rad` )
+
+// you can reduce it down to this point if you don't need arguements.
+
+// all arrow functions are anonymous (fail spelling)
+
+	const sayMyName = (name) => {alert(`Hello ${name}!`)}
+	sayMyName('Jason');
+
+// Anon functions are harder to stack trace (i.e go back when things go wrong)
+
+										// VIDEO #7 MORE ARROW FUNCTIONS //
+const race = '100m Dash'
+const winners = ['David Drozdowski', 'Corey Broussard','Rhett Maheu', 'Mike Ollig', 'Ashley Marie' ]
+
+const win = winners.map((winner, i)=> ({name: winner,race, place: i + 1})) //adding parenthesis is to show you are trying to return an object literal not an actual function block (saying the { isnt for a function block.)
+//in es6 you dont have to put race:race you can just name the variable if it is the same as the property name
+
+const ages = [23,24,25,26,27,28,29,30,60,65,70,75,85,95,100,1000];
+const old = ages.filter(age => age >= 60);//if the age is greater than or = to 60 it will be put into a new array called old.
+ </script>
+</svg>
+	</body>
+</html>
