@@ -56,26 +56,18 @@
 	<div class="wrap">
 		<div class="box">
 			<h2>JASON HARDER</h2>
-			<p class="social">@wesbos</p>
+			<p class="social">@Blinkfaster</p>
 		</div>
 	</div>
 
 	<script>
-		const box = document.querySelector('.box');
-		box.addEventListener('click', function() {
-			let first = 'opening';
-			let second = 'open';
-
-			if(this.classList.contains(first)) {
-				[first, second] = [second, first];
-			}
-
-			this.classList.toggle(first);
-			setTimeout(() => {
-				console.log(this);
-				this.classList.toggle(second);
-			}, 500);
-		});
+	const box = document.querySelector('.box');
+	box.addEventListener('click', function() { //called a reg function here because 'this' would change if using an arrow function' the arrow function would assign this to its parent so you're not referring to the box you're referring to its parent (in the parent scope which is the window -> you dont want the arrow function as you must reference the box here).
+		this.classList.toggle('opening');
+		setTimeout(() => {
+			this.classList.toggle('open');
+		}, 500); //after the first function you can use arrow functions as it inhearits this from its parent.
+	});
 
 
 	</script>
