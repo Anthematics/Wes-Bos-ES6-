@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Arrow Functions</title>
+	<meta charset="UTF-8">
+	<title>Arrow Functions</title>
 </head>
 <body>
 
 <script>
-  // 1. Given this array: `[3,62,234,7,23,74,23,76,92]`, use the array filter method and an arrow function to create an array of the numbers greater than `70`
-  const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
+	// 1. Given this array: `[3,62,234,7,23,74,23,76,92]`, use the array filter method and an arrow function to create an array of the numbers greater than `70`
+	const numbers = [3, 62, 234, 7, 23, 74, 23, 76, 92];
 
+	const greater = numbers.filter(num => num > 70)
+	console.log(greater)
+// .filter will keep only numbers that fit the bill
+// first num = getting the number  => arrow runs a function which is essentially an if statement (if num is > than 70 than it is true and you console.log it)
 </script>
 </body>
 </html>
