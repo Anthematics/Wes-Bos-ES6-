@@ -31,9 +31,17 @@
 
 <script>
 
-	// Select all the list items on the page and convert to array
- const listItems = Array.from(document.getElementsByTagName("li"))
- const flexfilter = listItems.Filter(listItems.textContent.includes => 'flexbox')
+
+	const listItems = Array.from(document.querySelectorAll("li"));
+	const flexFiltered = listItems
+		.filter(listItem => listItem.textContent.includes('Flexbox'))
+		.map(listItem => listItem.dataset.time)
+		.map(timeCode => {
+			const parts = timeCode.split(':').map(part => parseFloat(part)); //parseFloat will take strings and turn them into numbers (when digits)
+			return (parts[0] * 60) + parts[1];
+		})
+
+		.reduce((runningTotal, seconds) => runningTotal + seconds,0)
 
 
 	// Filter for only the elements that contain the word 'flexbox'
@@ -44,7 +52,7 @@
 	// reduce to get total
 
 	// 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
-
+console.log(flexFiltered)
 </script>
 </body>
 </html>
