@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Template If Statements</title>
+	</head>
+	<body>
+		<script>
+		const song = {
+			name: 'Glasgow',
+			artist: 'Shout Out Louds',
+			album: 'Optica'
+		};
+
+		const markup = `
+		<div class = 'song>'
+			<p>
+			${song.name} - ${song.artist}
+			${song.album ? `(on the album ${song.album})`:
+		''}
+			</p>
+		</div>
+		`;
+
+		document.body.innerHTML = markup;
+
+		</script>
+	</body>
+</html>
