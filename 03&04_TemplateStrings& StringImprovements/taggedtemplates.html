@@ -6,8 +6,8 @@
 
 		<style>
 
-		hl {
-			background: blue;
+		.hl {
+			background: lightblue;
 		}
 
 		</style>
@@ -19,16 +19,18 @@
 function highlight(strings, ...values) {
  let str = ''; //using let because we must add elements that we cannot w/const.
  strings.forEach((string , i) => {
-	 str += `${string} <span contenteditable class= "hl">${values[i] || ''}</span>`;
+	 str += `${string} <span contenteditable class= "hl">${values[i] || ''}
+	 </span>`;
  });
  return str;
 }
 	const name = 'Napoleon';
 	const age = 100;
-	const gender = 'male'
+	const hates = 'Sillyputty';
+
 	const sentence = highlight`my dogs name is ${name} and he
-		is ${age} years old and ${gender}`;
-	document.body.innerHTML = sentence
+		is ${age} years old just so you know he hates ${hates}`;
+	document.body.innerHTML = sentence;
 	console.log(sentence);
 
 	</script>
