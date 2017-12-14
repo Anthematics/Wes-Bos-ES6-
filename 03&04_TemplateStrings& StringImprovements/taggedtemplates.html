@@ -6,12 +6,21 @@
 	</head>
 	<body>
 <script>
+
+function highlight(strings, ...values) {
+ let str = ''; //using let because we must add elements that we cannot w/const.
+ strings.forEach((string , i)=> {
+	 str += `${string} <span class= "hl">${values[i] || ''}</span>;`
+ });
+ return str;
+}
 	const name = 'Napoleon';
 	const age = 100;
 	const gender = 'male'
-	const sentence = `my dogs name is ${name} and he is ${age} years old and ${gender}`
-	console.log(sentence)
+	const sentence = highlight`my dogs name is ${name} and he
+		is ${age} years old and ${gender}`;
+	console.log(sentence);
 
 	</script>
-	</body>
+</body>
 </html>
