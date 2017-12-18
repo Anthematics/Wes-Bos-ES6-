@@ -8,19 +8,23 @@
 </head>
 <body>
     <script>
-
-    const person = {
+   //instead of const first = person.first const last=person.last etc
+   //we can do const {first , last ,twitter } this removes the need for so many lines of code.
+   //it says "give me the variable first , last , & twitter and take that variable from the person" this takes those properties and puts them in variables.
+    
+    const person = { 
         first: 'Jason',
         last: 'Harder',
         country:'Canada',
         city: 'Toronto',
         twitter:'@anthematics',
-        facebook:'Anthemantics'
+        facebook:'Anthemantics',
     };
 
 //destructuring allows us to extract data from arrays , objects maps & sets into their own variables.    
+    const { first, last, twitter, city } = person;
 
-
+// I only allow first last twitter & city here so typing country & facebook into console comes back undefined.
     </script>
 </body>
 </html>
