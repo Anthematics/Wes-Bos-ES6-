@@ -18,7 +18,7 @@
         country:'Canada',
         city: 'Toronto',
         //twitter:'@anthematics',
-        
+    
     };
 
 //destructuring allows us to extract data from arrays , objects maps & sets into their own variables.    
@@ -53,8 +53,22 @@ const { twitter:tweet, facebook:fb, github:gh} = jason.links.social;
 
 //we can also set defaults - so imagine we will be creating an element and styling it.
 
-let settings = {width: 300, color: 'black'} //height , fontsize 
+const settings = {width: 300, color: 'black'} //height , fontsize 
+const {width = 200 , height = 50, color = 'green', fontSize = 25 } = settings; 
+// as it is currently set it will  pick out width and color from settings so it will go
+// to the default of 50  for height & black for color. 
+//-> width is destructured so it will be 300 , height is not so it will be fiddy (50) 
 
-</script>
+
+//object destructuring w/ variable renaming & default values.
+//in this final case we would get width 2 of 800 because 
+//it is destructuring width from the object on the right (w: 800) and renaming it
+// renaming it to width2
+
+//when height comes into play it will ALSO try to destructure from the (w:800) object
+// but it wont be able to so it keeps it's default value.
+const {w: width2 = 500, h: height2 = 250} = {w: 800}
+
+</script>-
 </body>
 </html>
