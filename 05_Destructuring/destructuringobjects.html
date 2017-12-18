@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>DESTRUCTURING STUFF</title>
 </head>
 <body>
     <script>
@@ -17,14 +17,44 @@
         last: 'Harder',
         country:'Canada',
         city: 'Toronto',
-        twitter:'@anthematics',
-        facebook:'Anthemantics',
+        //twitter:'@anthematics',
+        
     };
 
 //destructuring allows us to extract data from arrays , objects maps & sets into their own variables.    
-    const { first, last, twitter, city } = person;
+    const { first, last, city } = person;
 
-// I only allow first last twitter & city here so typing country & facebook into console comes back undefined.
-    </script>
+// I only allow first last twitter & city here so typing country into console comes back undefined.
+
+// so often times (like when you return information from an API - it is pretty deeply nested like in the example below.)
+
+const jason = { 
+    first: 'Jason',
+    last: 'Harder',
+    links: {
+        social: {
+            twitter: 'https://twitter.com/anthematics' ,
+            github: 'https://github.com/Anthematics/',
+            facebook: 'https://www.facebook.com/Anthemantics'
+        },
+
+        web:{
+           website:'www.hireharder.com'
+        }
+    }
+}
+
+// old way of saving the twitter const is <const twitter = jason.links.social.twitter>
+//old way of saving web const is is <const web = jason.links.web.website but again thats alot of lines of code
+// BETTER METHOD BELOW 
+
+const { twitter:tweet, facebook:fb, github:gh} = jason.links.social; 
+//^^^^^^this will reach into the social object and grab the 3 social links.
+
+//we can also set defaults - so imagine we will be creating an element and styling it.
+
+let settings = {width: 300, color: 'black'} //height , fontsize 
+
+</script>
 </body>
 </html>
