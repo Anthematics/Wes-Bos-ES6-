@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DESTRUCTURING STUFF</title>
+    <title>DESTRUCTURING OBJECTS</title>
 </head>
 <body>
     <script>
@@ -18,7 +18,7 @@
         country:'Canada',
         city: 'Toronto',
         //twitter:'@anthematics',
-    
+        
     };
 
 //destructuring allows us to extract data from arrays , objects maps & sets into their own variables.    
@@ -28,8 +28,7 @@
 
 // so often times (like when you return information from an API - it is pretty deeply nested like in the example below.)
 
-const jason = { 
-    first: 'Jason',
+const jason = {     first: 'Jason',
     last: 'Harder',
     links: {
         social: {
@@ -48,27 +47,10 @@ const jason = {
 //old way of saving web const is is <const web = jason.links.web.website but again thats alot of lines of code
 // BETTER METHOD BELOW 
 
-const { twitter:tweet, facebook:fb, github:gh} = jason.links.social; 
+const { twitter, facebook, github} = jason.links.social; 
 //^^^^^^this will reach into the social object and grab the 3 social links.
 
-//we can also set defaults - so imagine we will be creating an element and styling it.
 
-const settings = {width: 300, color: 'black'} //height , fontsize 
-const {width = 200 , height = 50, color = 'green', fontSize = 25 } = settings; 
-// as it is currently set it will  pick out width and color from settings so it will go
-// to the default of 50  for height & black for color. 
-//-> width is destructured so it will be 300 , height is not so it will be fiddy (50) 
-
-
-//object destructuring w/ variable renaming & default values.
-//in this final case we would get width 2 of 800 because 
-//it is destructuring width from the object on the right (w: 800) and renaming it
-// renaming it to width2
-
-//when height comes into play it will ALSO try to destructure from the (w:800) object
-// but it wont be able to so it keeps it's default value.
-const {w: width2 = 500, h: height2 = 250} = {w: 800}
-
-</script>-
+</script>
 </body>
 </html>
