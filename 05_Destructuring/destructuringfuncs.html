@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title> Destructuring Functions: Multiple returns and named defaults</title>
 </head>
 <body>
     <script>
@@ -20,6 +20,27 @@
 
 const hundo= convertCurrency(100);
 console.log(hundo);
+
+
+//previously if we wanted to return amounts of dollars/pesos etc we would console.log(hundo.aud or hundo.mex etc.) 
+//you cannot return multiple values w/destructuring but we can return an object and destructure an answer from that. 
+//instead of console.logging hundo we ca destructure it like this: (below)
+
+const{USD,AUD,MEX} = convertCurrency(100); //another thing to note -> does not matter which way the object comes out or even if you use all the listed variables because its just an object
+console.log(USD, AUD)
+
+//this func logs just USD & AUD 
+
+function tipCalc({total, tip = 0.15, tax = 0.13}) {
+    return total + (tip*total) + (tax*total);
+}
+
+const bill = tipCalc({tip: 0.20 ,total :200}); //notice the order of the variables is irrelevent.
+//you can also leave things off and not have to pass undefined (see default arguments assignment)
+//defaults still fill in
+
+console.log(bill);
+
     </script>
 </body>
 </html>
