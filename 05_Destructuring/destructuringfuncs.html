@@ -31,14 +31,18 @@ console.log(USD, AUD)
 
 //this func logs just USD & AUD 
 
+
+//***Wrapping these 3 arguements in curly brackets means when we pass in an object it's going to destructure them into 3 variables , total , tip & tax which would be available within the function
 function tipCalc({total, tip = 0.15, tax = 0.13}) {
     return total + (tip*total) + (tax*total);
 }
-
 const bill = tipCalc({tip: 0.20 ,total :200}); //notice the order of the variables is irrelevent.
 //you can also leave things off and not have to pass undefined (see default arguments assignment)
-//defaults still fill in
+//defaults still fill in.
 
+//if you ever are to pass in NO arguement so run tipCalc(); we get a destructuring error (cannot match against undefined or null.)
+//the function would have to look like const bill = tipCalc({tip: 0.20 ,total :200} = {});
+// the issue here would be there is no function to destructure against.
 console.log(bill);
 
     </script>
