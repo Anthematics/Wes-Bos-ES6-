@@ -8,14 +8,27 @@
 </head>
 <body>
     <script>
-        const custs= ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+        const cuts= ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
         // Old way of looping
         // cons: weird syntax, 
-        //for (let i = 0; , i < cuts.length; i++) {
-        //console.log(cuts[i]);
-        //}
+        for (let i = 0; i < cuts.length; i++) {
+        console.log(cuts[i]+ '   old for loop');
+        }
 
+        cuts.forEach((cut) => {
+          console.log(cut + '     for each loop');
+        });
+        //for each -> not good when you need to skip over something 
+        // Also you cannot use a break inside of a forEach.
 
+        for (const index in cuts) {
+            console.log(cuts[index] + '      this is for in loop');
+        }
+
+        //for in loop -> con: Iterates over everything in the array including things added to the prototype: 
+        //so it may actually console.log a written function.
+        // if you add a property or a method to the array it will ALSO show up.
+       
         </script>
 </body>
 </html>
