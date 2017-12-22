@@ -28,7 +28,26 @@
         //for in loop -> con: Iterates over everything in the array including things added to the prototype: 
         //so it may actually console.log a written function.
         // if you add a property or a method to the array it will ALSO show up.
-       
+       // even if you think you dont modify arrays by prototyping etc (or w.e) you may still do that by using Libraries (i.e moo tools or other types [react???])
+        
+        for (const cut of cuts){
+            if (cut ==='Brisket'){
+                break;
+            }
+            console.log(cut + '      this is a for of loop w/ a break')
+        }
+
+        for (const cut of cuts) {
+            if (cut === 'Brisket'){
+                continue;
+            }
+            console.log(cut+ '     this will skip brisket')
+        }
+
+
+        //for of loops is considered the best of both worlds EXCEPT it cannot be used with objects.
+
+
         </script>
 </body>
 </html>
