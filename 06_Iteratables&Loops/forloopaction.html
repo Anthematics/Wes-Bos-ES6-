@@ -15,10 +15,20 @@
         }
 ///side note -> if you console.log cuts vs just cut you will log the array 4 times(and be able to see the values) suggesting that its saying for each array log the array if incorrect.
         
-        for (const [1,cut] of cuts.entries()) {
-            console.log(`${cut} is the ${i + 1} item  )
+        for (const [i,cut] of cuts.entries()) {
+            console.log(`${cut} is the ${i + 1} item ` )
         }
-    
+
+        function addUpNumbers() {
+            let total = 0;
+            for (num of arguments) {
+                total += num;
+            }
+            console.log(total);
+            return total;
+        }
+    addUpNumbers(100,200,500,600,100,50,25);
+
     </script>
 </body>
 </html>
