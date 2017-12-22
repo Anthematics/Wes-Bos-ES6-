@@ -7,8 +7,19 @@
     <title>forOf loop in action (deeper look)</title>
 </head>
 <body>
-    <script>
+    <p> Hi I'm p01</p>
+    <p> Hi I'm p02</p>
+    <p> Hi I'm p03</p>
+    <p> Hi I'm p04</p>
+    <p> Hi I'm p05</p>
+    <p> Hi I'm p06</p>
+    <p> Hi I'm p07</p>
+    <p> Hi I'm p08</p>
+    <p> Hi I'm p09</p>
+    <p> Hi I'm p10</p>
 
+ <script>
+ 
      const cuts= ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
         for (const cut of cuts) {
             console.log(cut)
@@ -21,7 +32,7 @@
 
         function addUpNumbers() {
             let total = 0;
-            for (num of arguments) {
+            for (const num of arguments) {
                 total += num;
             }
             console.log(total);
@@ -29,6 +40,23 @@
         }
     addUpNumbers(100,200,500,600,100,50,25);
 
+        const name ='Jason Harder'
+        for (const char of name) {
+            console.log(char)
+        }
+
+    const ps = document.querySelectorAll('p');
+        console.log(ps);
+//this console.log is not a true array but a nodelist.However we will have access to for Each & other array methods we are used to.s
+    
+    for (const paragraph of ps) {
+        console.log(paragraph);
+        paragraph.addEventListener('click',function(){console.log(this.textContent);
+        })
+    }
+
+    //^^ Whenever someone clicks on a paragraph console.log what is inside.
+    
     </script>
 </body>
 </html>
