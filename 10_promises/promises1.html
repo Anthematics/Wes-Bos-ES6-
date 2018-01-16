@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Promises!</title>
+</head>
+ 
+<body>
+    <script>
+        //fire up rails or browsersync to test promises - otherwise i may get an error of some sort.
+        console.log('Going to fetch the latest posts from Wes\' blog');
+        const posts = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+        console.log('done');
+        console.log(posts);
+        // A promise is sort of an IOU ( i don't have the data yet but this promise is an IOU when it comes back I return the data.)
+
+        fetch('//google.com', {
+                mode: 'no-cors'
+            }).then(function (response) {
+                console.log(response.type); 
+            });
+
+        const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts')
+        // we will rename the variable to postPromise and we will listen to it using the code below
+        postsPromise.then()
+        $('a').on('click', function () {
+            alert('hello')
+        })
+        
+        //when you fetch you must return data.json because you could fetch any type fo data not just data.json. ALSO 
+        //we add another .then statement to return the JSON in the console.log (as data)
+        postsPromise.then( data => data.json())
+        .then(data=> {console.log(data)})
+        .catch((err)=> {
+            console.log(err);
+        })
+        //you can have it on one or two lines , but two lines is more readable
+        //then will only fire if a promise  is SUCCESSFUL ..but what if it isn't????!>!>!>!>! OMFG BBQ
+        //we then have to use a catch -> which will catch ANY errors that may happen on the way.
+        
+        // this above code is a callback and will run only when the someone clicks it. the then function will run when the data comes back.
+
+        //this is basically fetch at a very high level.
+    </script>
+</body>
+
+</html>
