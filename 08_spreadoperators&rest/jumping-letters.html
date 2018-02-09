@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>The ...Spread Operator</title>
@@ -10,33 +11,64 @@
       background: #ffc600;
       text-transform: uppercase;
       display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: 50px;
-      color:white;
-      text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+      color: white;
+      text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
     }
+
     .jump span {
       display: inline-block;
       transition: transform 0.2s;
-      cursor:url('http://csscursor.info/source/santahand.png'), default;
+      cursor: url('http://csscursor.info/source/santahand.png'), default;
     }
+
     .jump span:hover {
       transform: translateY(-20px) rotate(10deg) scale(2);
     }
+
+    .inputbutton {
+      justify-content: left;
+      align-items: left;
+    }
+
+    .list {
+      justify-content: center;
+      align-items: center;
+    }
   </style>
 </head>
+
 <body>
-  <h2 class="jump">SPREADS!</h2>
 
-<script>
-  const header = document.querySelector('.jump')
-  const innerspans = spreadMe(header.textContent)
+  <div class=i nputbutton>
+    <h2>
+      <input class="jump">
+    </h2>
+    <h3>
+      <button class="clickme"> Add to list </button>
+    </h3>
+  </div>
 
-  function spreadMe(word)  {
-    return [...word].map(letter =>`<span> ${letter}</span>`).join('')
-  }
+  <div class="list">
 
-</script>
+    </pre>
+
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const header = document.querySelector('.jump');
+        const clickme = document.querySelector('.clickme');
+        const saveme = localStorage.setItem("name", header.innerText);
+        const retreiveme = localStorage.getItem("name", header.value)
+        const list = document.querySelector('.list')
+
+        clickme.addEventListener('click', (event) => {
+          list.append(header.value + '!' + '\n')
+        })
+      })
+
+    </script>
 </body>
+
 </html>
+
