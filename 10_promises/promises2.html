@@ -14,22 +14,23 @@ const p = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Jason is rad');
     }, 1000);
-    
+
 });
 
-p
-    .then(data => {
+
+    p.then(data => {
         console.log(data);
-    }); 
+    });
 
 const lies = new Promise((resolve, reject)=> {
     setTimeout(() =>{
-        reject('Jason is rad');
+        reject(Error('Jason sux'));
     }, 1000);
+}).catch(err => {
+    console.error(err);
 });
 
-lies
-    .then(data => {
+lies.then(data => {
         console.log(data);
     });
 
